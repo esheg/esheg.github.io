@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-<title>Portfolio</title>
+<head>
+<style>
+.container {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 0px;
+}
+.container > div {
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+</style>
+</head>
 <body>
+<title>Portfolio</title>
 <p><a href="http://elijahsheggeby.com/">index</a></p>
 
 <p style="font-size:18px; "><b>Unreal Engine</p></b>
-<p>
-    Homeworld 3 - QA<br>
-</p>
 <p style="font-size:18px; "><b>Unity</b></p>
 <p>
     Roll A Ball Game
 </p>
 <p style="font-size:18px; "><b>Godot</b></p>
-<p>
-    <iframe src="https://store.steampowered.com/widget/3139370/" frameborder="0" width="646" height="190"></iframe><br>
-    <iframe frameborder="0" src="https://itch.io/embed/3423253" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/prototype-3d-ball-game">[Prototype] 3D Ball Game by Temporary Asset Productions</a></iframe><br>
-    <iframe frameborder="0" src="https://itch.io/embed/3091728?linkback=true" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/uoisitdif">Uh Oh... I'm Stuck In This Dungeon &amp; It's Freaky by Temporary Asset Productions</a></iframe><br>
-    <iframe frameborder="0" src="https://itch.io/embed/2611005" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/iitspataf">I'm In This Strange Place And There's A Forklift by Temporary Asset Productions</a></iframe><br>
-
-    
-</p>
-<p style="font-size:18px; "><b>Mobile</b></p>
-<p>
-    <iframe frameborder="0" src="https://itch.io/embed/2854460" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/tap-clicker">TAP Clicker by Temporary Asset Productions</a></iframe>
-</p>
-</div>
-</body>
-</html>
+<div class="container">
+    <div>
+    <iframe src="https://store.steampowered.com/widget/3139370/" frameborder="0" width="646" 		height="190"></iframe>
+    </div>
+    <div><iframe frameborder="0" src="https://itch.io/embed/3423253" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/prototype-3d-ball-game">[Prototype] 3D Ball Game by Temporary Asset Productions</a></iframe>
+    </div>
+    <div><iframe frameborder="0" src="https://itch.io/embed/3091728?linkback=true" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/uoisitdif">Uh Oh... I'm Stuck In This Dungeon &amp; It's Freaky by Temporary Asset Productions</a></iframe>
+    </div>  
+    <div><iframe frameborder="0" src="https://itch.io/embed/2611005" width="646" height="167"><a href="https://temporaryassetproductions.itch.io/iitspataf">I'm In This Strange Place And There's A Forklift by Temporary Asset Productions</a></iframe>
+    </div>
+  </div>
+  
+  </body>
+  </html>
