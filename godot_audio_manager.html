@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<title>Godot Audio Manager</title>
+<pre>
+    <code>
+        extends Node
+
+        var num_players = 8
+        var bus = "master"
+
+        var available_3d = []
+        var available_2d = []
+        var queue = []
+
+        func _ready():
+            # Create AudioStreamPlayer3D pool
+            for i in num_players:
+                var player3d = AudioStreamPlayer3D.new()
+                add_child(player3d)
+                available_3d.append(player3d)
+                player3d.finished.connect(_on_stream_finished_3d.bind(player3d))
+                player3d.bus = bus
+            # Create AudioStreamPlayer pool for 2D sounds
+            for i in num_players:
+                var player2d = AudioStreamPlayer.new()
+                add_child(player2d)
+                available_2d.append(player2d)
+                player2d.finished.connect(_on_stream_finished_2d.bind(player2d))
+                player2d.bus = bus
+
+
+        func _on_stream_finished_3d(player):
+            available_3d.append(player)
+
+
+        func _on_stream_finished_2d(player):
+            available_2d.append(player)
+
+
+        func play(
+            sound_path: String,
+            min_pitch: float = 0.95,
+            max_pitch: float = 1.05,
+            bus_override: String = "",
+            source = null
+            ):
+            var is_3d = false
+            var source_pos: Vector3 = Vector3.ZERO
+            if source != null:
+                if typeof(source) == TYPE_OBJECT and source is Node3D:
+                    is_3d = true
+                    source_pos = source.global_transform.origin
+                elif typeof(source) == TYPE_VECTOR3:
+                    is_3d = true
+                    source_pos = source
+                else:
+                    push_warning(
+                        "AudioManager.play() called with unsupported source type: %s" % typeof(source))
+            queue.append({
+                "path": sound_path,
+                "min_pitch": min_pitch,
+                "max_pitch": max_pitch,
+                "bus": bus_override,
+                "is_3d": is_3d,
+                "source_pos": source_pos
+            })
+
+
+        func _process(delta):
+            if queue.size() == 0:
+                return
+            var item = queue[0]
+            if item.is_3d and available_3d.size() > 0:
+                queue.pop_front()
+                var player = available_3d.pop_front()
+                player.global_transform.origin = item.source_pos
+                player.stream = load(item.path)
+                player.pitch_scale = randf_range(item.min_pitch, item.max_pitch)
+                player.bus = item.bus if item.bus != "" else bus
+                player.play()
+            elif not item.is_3d and available_2d.size() > 0:
+                queue.pop_front()
+                var player = available_2d.pop_front()
+                player.stream = load(item.path)
+                player.pitch_scale = randf_range(item.min_pitch, item.max_pitch)
+                player.bus = item.bus if item.bus != "" else bus
+                player.play()
+
+    </code>
+</pre>
