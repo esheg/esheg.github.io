@@ -1,35 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-.container {
-  display: grid;
-  grid-template-columns: auto auto;
-  padding: 0px;
-}
-.container > div {
-  padding: 10px;
-}
-</style>
-</head>
-<body>
-<title>Portfolio</title>
-<p><a href="http://elijahsheggeby.com/">index</a></p>
-<p><a href="http://elijahsheggeby.com/godot.html">Modular Godot Scripts</a></p>
-<p>	<a href="https://store.steampowered.com/search/?developer=Temporary%20Asset%20Productions">Temporary Asset Productions on Steam</a><br>
-	<a href="https://temporaryassetproductions.itch.io/" target="_blank">Temporary Asset Productions on Itch.io</a><br>
-</p>
-<div class="container">
-    <div>
-    <video width="400" controls>
-    <source src="/assets/video/ar.mp4" type="video/mp4">
-    Your browser does not support HTML video.
-    </video> 
+<header><div><h1>FPS Sound Design</h1><p><a href="http://elijahsheggeby.com/" target="_blank">index</a></p></div></header>
+<div class="aks-note-box">
+  <p></p>
+</div>
+<!--
+NOTE FOR BRIGHTSPACE USERS: 
+Brightspace strips the grid-template-columns property, meaning this code will not give you the desired results in Brightspace.
+-->
+
+<!-- content -->
+<h2></h2>
+
+<!-- START OF GRID -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); grid-gap: 20px;">
+
+  <!-- Video 1 -->
+  <div style="background-color: whitesmoke; padding: 15px;">
+    <h3 style="border-bottom: 1px solid; margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">AR</h3>
+    <div style="position: relative; width: 100%; padding-top: 56.25%;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="/assets/video/ar.mp4" title="AR" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
-    <video width="400" controls>
-    <source src="/assets/video/ar.mp4" type="video/mp4">
-    Your browser does not support HTML video.
-    </video> 
+    <p style="margin: 12px 0 0 0;"><strong>Text:</strong> Lorem Imsum</p>
   </div>
-  </body>
-  </html>
+
+  <!-- Video 2 -->
+  <div style="background-color: whitesmoke; padding: 15px;">
+    <h3 style="border-bottom: 1px solid; margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">SMG</h3>
+    <div style="position: relative; width: 100%; padding-top: 56.25%;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="/assets/video/smg.mp4" title="SMG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p style="margin: 12px 0 0 0;"><strong>Text:</strong> Lorem Imsum</p>
+  </div>
+
+  <!-- Video 3 -->
+  <div style="background-color: whitesmoke; padding: 15px;">
+    <h3 style="border-bottom: 1px solid; margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">Shotgun</h3>
+    <div style="position: relative; width: 100%; padding-top: 56.25%;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="/assets/video/shotgun.mp4" title="Shotgun" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p style="margin: 12px 0 0 0;"><strong>Text:</strong> Lorem Imsum</p>
+  </div>
+
+  <!-- Video 4 -->
+  <div style="background-color: whitesmoke; padding: 15px;;">
+    <h3 style="border-bottom: 1px solid; margin: 0 0 8px 0; font-size: 18px; font-weight: 600;">Sniper</h3>
+    <div style="position: relative; width: 100%; padding-top: 56.25%;">
+      <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="/assets/video/sniper.mp4" title="Sniper" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p style="margin: 12px 0 0 0;"><strong>Text:</strong> Lorem Imsum</p>
+  </div>
+
+</div>
+<!-- END OF GRID -->
